@@ -1,0 +1,4 @@
+If you want to work with import / export in javascript then you have to add
+the "type":"module" in package.json file 
+
+for finding it you must type npm init
