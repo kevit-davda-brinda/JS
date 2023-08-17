@@ -4,4 +4,4 @@ with because because because is a conjunction' */
 
 const str = "You cannot end a sentence with because because because is a conjunction";
 
-console.log(str.match("because"))
+console.log(str.match(/because/g).length) // method with "g" para

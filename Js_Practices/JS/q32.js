@@ -112,9 +112,7 @@ class Statistics {
         return (this.age[(n / 2) - 1] + this.age[(n / 2)]) / 2;
     }
 
-    mode() {
-        var map = new Map() // map object created
-
+    frequencyCount(map){
         //counting frequency and put it in map
         for (var i = 0; i < this.count(); i++) {
             if (map.has(this.age[i])) {
@@ -127,8 +125,17 @@ class Statistics {
             }
         }
 
+        return map;
+    }
+
+    mode() {
+        let map = new Map() // map object created
+
+        this.frequencyCount(map);
+
         //iterating the map
-        let freq = 0, num = -1;
+        let freq = 0, num = -1;this.frequencyCount(map);
+
         for (let [key, value] of map) {
             if (freq < value) {
                 freq = value;
@@ -157,6 +164,18 @@ class Statistics {
     }
 
     freqDist(){
+
+        let map = new Map() // map object created
+
+        this.frequencyCount(map);
+
+        let resultArraya = [];
+
+        for(let i of map){
+            resultArraya.push([i[1]*100/this.count(),i[0]])
+        }
+
+        return resultArraya;
 
     }
 
